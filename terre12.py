@@ -10,5 +10,5 @@ while True:
 
     print("Heure locale (format 24 heures):", heure_locale)
     
-    # Mettre à jour
-    time.sleep(1)
+    # Mettre à jour, toutes les 5 secondes
+    time.sleep(5)  # Attendre 5 secondes avant la prochaine mise à jour

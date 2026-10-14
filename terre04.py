@@ -11,6 +11,6 @@ while True:
         break  # Quitter la boucle si l'utilisateur entre 0
 
     if nombre % 2 == 0:
-        print(f"{nombre} est un nombre pair.")
+        print(f"{nombre} est un nombre Pair.")
     else:
-        print(f"{nombre} est un nombre impair.")
+        print(f"{nombre} est un nombre Impair.")

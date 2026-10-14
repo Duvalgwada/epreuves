@@ -1,9 +1,8 @@
 # Trie ou pas (Determiner si une liste numerique est triée ou non)
 
-# les Listes
-liste1 = [9, 8, 3]
-liste2 = [3, 8, 9, 12]
-liste3 = [15, 12, 9, 1]
+# Saisie de la liste par l'utilisateur
+chaine = input("Saisissez une liste de nombres séparés par des virgules : ")
+liste = [int(x.strip()) for x in chaine.split(",") if x.strip()]
 
 # programme afin de verifier
 def est_liste_triee(liste):
@@ -12,18 +11,8 @@ def est_liste_triee(liste):
             return False
     return True
 
-# Vérification si les listes sont triées
-if est_liste_triee(liste1):
-    print("liste1 est triée.")
+# Vérification si la liste est triée
+if est_liste_triee(liste):
+    print("La liste est triée.")
 else:
-    print("liste1 n'est pas triée.")
-
-if est_liste_triee(liste2):
-    print("liste2 est triée.")
-else:
-    print("liste2 n'est pas triée.")
-
-if est_liste_triee(liste3):
-    print("liste3 est triée.")
-else:
-    print("liste3 n'est pas triée.")
+    print("La liste n'est pas triée.")

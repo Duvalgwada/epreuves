@@ -14,5 +14,5 @@ while True:
     print("Heure locale (format 24 heures):", heure_locale)
     print("Heure locale (format 12 heures):", heure_format_12)
 
-    # Mettre à jour
-    # time.sleep(1)
+    # Petite option, une pause pour éviter de saturer la console avec des mises à jour trop rapides
+    time.sleep(10)  # Attendre 10 secondes avant la prochaine mise à jour
