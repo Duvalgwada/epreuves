@@ -14,15 +14,8 @@ def majuscule_tous_les_deux(caracteres):
     return resultat
 
 # Entrer la chaine de caractere
-chaine_originale = "Hello world !"
+chaine_originale = input("Entrez un texte : ")
 chaine_modifiee = majuscule_tous_les_deux(chaine_originale)
 
 print("Chaîne originale :", chaine_originale)
 print("Chaîne modifiée  :", chaine_modifiee)
-
-# Vérification de la longueur
-if len(chaine_modifiee) != len(chaine_originale):
-    print("Erreur : Les caractères ne correspondent pas.")
-else:
-    print("Chaîne originale :", chaine_originale)
-    print("Chaîne modifiée  :", chaine_modifiee)

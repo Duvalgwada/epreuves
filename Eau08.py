@@ -4,15 +4,13 @@
 
 # methode 'isdigit()'
 
-def est_numerique(chaine):
+def nombre(chaine):
     return chaine.isdigit()
 
-# Exemple d'utilisation
-chaine1 = "12345"
-chaine2 = "12abc34"
-chaine3 = ""
+# Entrer la chaine de caractere
+caractere = input("Entrez une suite de chiffres : ")
 
-print(est_numerique(chaine1))  # Devrait renvoyer True
-print(est_numerique(chaine2))  # Devrait renvoyer False
-print(est_numerique(chaine3))  # Devrait renvoyer False
-
+if nombre(caractere):
+    print(f"La chaîne '{caractere}' contient uniquement des chiffres.")
+else:
+    print(f"La chaîne '{caractere}' contient des caractères non numériques aussi.")

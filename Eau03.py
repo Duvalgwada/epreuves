@@ -28,4 +28,7 @@ if result == -1:
 else:
     print(f"Le {n}-ème élément de la suite de Fibonacci est : {result}")
 
-# Sincerement, je n'ai pas compris
+# À retenir : cette fonction utilise la récursivité : elle s’appelle elle-même pour 
+# calculer les termes précédents. Le code compte F(0) = 0, F(1) = 1, donc n = 4 donne 3. 
+# Cette méthode est facile à comprendre, mais elle devient lente pour de grandes valeurs de n, 
+# car elle recalcule plusieurs fois les mêmes termes.

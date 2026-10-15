@@ -4,10 +4,13 @@
 # Programme devant implementer l'algorithme du tri à bulle
 
 # definition
-# L'algorithme de tri à bulles (Bubble Sort en anglais) est un algorithme simple de tri qui fonctionne en comparant et en échangeant les éléments adjacents s'ils sont dans le mauvais ordre. 
-# L'algorithme passe à travers la liste plusieurs fois jusqu'à ce qu'aucun échange ne soit nécessaire, indiquant que la liste est triée.
+# L'algorithme de "tri à bulles" ("Bubble Sort" en anglais) est un algorithme simple de tri qui 
+# fonctionne en comparant et en échangeant les éléments adjacents s'ils sont dans le mauvais ordre. 
+# L'algorithme passe à travers la liste plusieurs fois jusqu'à ce qu'aucun échange ne soit nécessaire, 
+# indiquant que la liste est triée.
 
-tableau = [6, 5, 4, 3, 2, 1]
+# Donner les elements du tableau separes par des espaces, puis appuyer sur Entrée.
+tableau = list(map(int, input("Entrez les éléments du tableau, séparés par des espaces : ").split()))
 
 def tri_bulles(tableau):
     n = len(tableau)
@@ -26,4 +29,3 @@ tri_bulles(tableau)
 
 print("Tableau trié:")
 print(tableau)
-

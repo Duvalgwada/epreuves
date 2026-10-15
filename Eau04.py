@@ -1,31 +1,33 @@
-# Prochain nombre Premier
+# Prochain nombre premier
 
-import sys
+nombre = int(input("Écris un nombre entier : "))
 
-n = int(input("Entrez un nombre premier : "))
-
+# Fonction pour vérifier si un nombre est premier   
 def est_nombre_premier(nombre):
-    if nombre <= 1:
+    if nombre < 2:
         return False
-    if nombre == 2:
-        return True
-    if nombre % 2 == 0:
-        return False
-    for i in range(3, int(nombre**0.5) + 1, 2):
+
+    i = 2
+    while i * i <= nombre:
         if nombre % i == 0:
             return False
+        i += 1
+
     return True
 
-def premier_superieur(n):
-    if n <= 1:
-        n = 2
-    else:
-        n += 1
+# Fonction pour trouver le prochain nombre premier supérieur à un nombre donné
+def premier_superieur(nombre):
+    candidat = nombre + 1
 
-    while True:
-        if est_nombre_premier(n):
-            return n
-        n += 1
+    while not est_nombre_premier(candidat):
+        candidat += 1
 
-resultat = premier_superieur(n)
-print(f"Le premier nombre premier supérieur à {n} est {resultat}")
+    return candidat
+
+if est_nombre_premier(nombre):
+    print(f"Le nombre {nombre} est premier.")
+else:
+    print(f"Le nombre {nombre} n'est pas premier.")
+
+resultat = premier_superieur(nombre)
+print(f"Le premier nombre premier supérieur à {nombre} est {resultat}.")

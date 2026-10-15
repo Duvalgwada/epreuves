@@ -1,6 +1,6 @@
 # Entre min et max
 
-# creer programme affichant toutes les valeurs comprises entre 2 nombres dans l'ordre croissant, minimum inclus, maximum exclus
+# creer programme affichant toutes les valeurs comprises dans l'ordre croissant, minimum inclus, maximum exclus
 
 import sys
 
@@ -16,16 +16,13 @@ def valeurs_entre(minimum, maximum):
     for valeur in range(minimum, maximum):
         print(valeur)
 
-# Exemple 1
-minimum = 20
-maximum = 25
-valeurs_entre(minimum, maximum)
+input_min = input("Entrez la valeur minimum : ")
+input_max = input("Entrez la valeur maximum : ")
 
-# Exemple 2
-minimum = 25
-maximum = 20
-valeurs_entre(minimum, maximum)
-
-# Exemple 3 (avec une valeur non numérique)
-minimum = "hello"
-valeurs_entre(minimum, 30)
+try:
+    min_val = int(input_min)
+    max_val = int(input_max)
+    valeurs_entre(min_val, max_val)
+except ValueError:
+    print("Erreur : Les valeurs doivent être des nombres entiers.")
+    

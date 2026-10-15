@@ -1,20 +1,19 @@
-# Tri par ordre Ascii
+# Tri par ordre ASCII
+# Le tri compare les caractères de gauche à droite selon leur code ASCII.
+# Par exemple, les majuscules précèdent les minuscules.
 
-# Programme triant les elements données en argument par ordre ASCII.
+# demande les éléments à trier, séparés par des espaces.
+# split() transforme la saisie en une liste de chaînes.
+elements = input("Entrez les éléments à trier, séparés par des espaces : ").split()
 
-# definition
-# Tr Lexicograhique ordre alphabétique basé sur l'ordre ASCII des caractères)
+# vérifier que tous les caractères saisis appartiennent à ASCII.
+if all(element.isascii() for element in elements):
+    # sorted() trie les chaînes selon l'ordre de leurs caractères ASCII.
+    elements_tries = sorted(elements)
 
-tableau1 = ["Alfred", "Momo", "Gilbert"]
-tableau2 = ["a", "z", "e", "r", "t", "y"]
-
-# Tri de la liste ensemble
-# tableau_trie = sorted(tableau1 + tableau2, key=str.lower)
-
-# Tri de la liste seul
-tableau_trie1 = sorted(tableau1, key=str.lower)
-tableau_trie2 = sorted(tableau2, key=str.lower)
-
-print("Liste triée par ordre ASCII (lexicographique): ")
-print(tableau_trie1)
-print(tableau_trie2)
+    # afficher la liste triée.
+    print("Éléments triés par ordre ASCII :")
+    print(elements_tries)
+else:
+    # Signaler une entrée contenant des caractères non ASCII, comme « é ».
+    print("Erreur : les éléments doivent contenir uniquement des caractères ASCII.")
