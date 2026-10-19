@@ -1,3 +1,5 @@
+import re
+
 #  Rotation vers la gauche
 
 # Programme decalant tous les elements d'un tableau vers la gauche.
@@ -15,8 +17,24 @@ def decalage_vers_la_gauche(tableau):
     return tableau
 
 def main():
-    # Exemple d'utilisation
-    mon_tableau = ["Michel", "Albert", "Thereèse", "Benoit"]
+    # Saisir les elements separes par des espaces ou des virgules.
+    saisie = input(
+        "Entrez les elements a faire pivoter, separes par des espaces ou des virgules : "
+    )
+    elements_saisis = re.split(r"[\s,]+", saisie.strip())
+    if not saisie.strip():
+        print("Erreur : veuillez saisir au moins un element.")
+        return
+
+    # Convertir les entiers en nombres et conserver les autres elements comme texte.
+    mon_tableau = []
+    for element in elements_saisis:
+        if not element:
+            continue
+        try:
+            mon_tableau.append(int(element))
+        except ValueError:
+            mon_tableau.append(element)
 
     # Afficher le tableau original
     print(f"Tableau original : {mon_tableau}")

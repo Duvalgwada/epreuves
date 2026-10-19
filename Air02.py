@@ -9,24 +9,27 @@ def concatener_tableau(tableau, separateur):
     return chaine_concatenee
 
 def main():
-    # Espace
-    chaine = ["je", "teste", "des", "trucs"]
+    # Demande à l'utilisateur les éléments à concaténer, séparés par des espaces.
+    saisie = input("Entrez les éléments à concaténer, séparés par des espaces : ")
+    chaine = saisie.split()
+
+    # Affiche le résultat obtenu avec un espace comme séparateur.
     separateur = " "
     chaine_resultante = concatener_tableau(chaine, separateur)
+    print("Avec un espace :")
     print(chaine_resultante)
 
-    # Tabulation
-    chaine = ["je", "teste", "des", "trucs"]
+    # Affiche le résultat obtenu avec une tabulation comme séparateur.
     separateur = "\t"
     chaine_resultante = concatener_tableau(chaine, separateur)
+    print("Avec une tabulation :")
     print(chaine_resultante)
 
-    # Retour à la ligne
-    chaine = ["je", "teste", "des", "trucs"]
+    # Affiche le résultat obtenu avec un retour à la ligne comme séparateur.
     separateur = "\n"
     chaine_resultante = concatener_tableau(chaine, separateur)
+    print("Avec un retour à la ligne :")
     print(chaine_resultante)
 
 if __name__ == "__main__":
     main()
-

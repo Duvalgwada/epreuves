@@ -1,28 +1,42 @@
+import re
+
 #  Contrôle de pass sanitaire
 
-# Programme supprimant d'un tableau tous les elements qui ne contiennent pas une autre chaine de caractere
+# Programme affichant les elements qui ne contiennent pas le caractere saisi.
 
-def filtrer_elements_ne_contenant_pas(liste, sous_chaine):
-    # Utiliser une liste en compréhension pour filtrer les éléments
-    resultats_filtres = [element for element in liste if sous_chaine not in element]
-    return resultats_filtres
+def filtrer_elements_ne_contenant_pas(liste, caractere):
+    caractere = caractere.casefold()
+    elements_filtres = []
+    for element in liste:
+        if caractere not in element.casefold():
+            elements_filtres.append(element)
+    return elements_filtres
 
 def main():
-# Exemple t
-    ma_liste = ["Michel", "Albert", "Thérèse", "Benoit", "Paul", "t"]
-    sous_chaine_a_chercher = "t"
+    saisie_elements = input(
+        "Entrez les elements, separes par des espaces ou des virgules : "
+    )
+    ma_liste = [
+        element
+        for element in re.split(r"[\s,]+", saisie_elements.strip())
+        if element
+    ]
 
-    resultats_filtres = filtrer_elements_ne_contenant_pas(ma_liste, sous_chaine_a_chercher)
-    print(f"Liste originale : {ma_liste}")
-    print(f"Résultats filtrés : {resultats_filtres}")
+    if not ma_liste:
+        print("Erreur : veuillez saisir au moins un element.")
+        return
 
-    # Exemple a
-    ma_liste = ["Michel", "Albert", "Thérèse", "Benoit", "Paul", "a"]
-    sous_chaine_a_chercher = "a"
+    caractere_a_chercher = input("Entrez un caractere a rechercher : ").strip()
 
-    resultats_filtres = filtrer_elements_ne_contenant_pas(ma_liste, sous_chaine_a_chercher)
-    print(f"Liste originale : {ma_liste}")
-    print(f"Résultats filtrés : {resultats_filtres}")
+    if len(caractere_a_chercher) != 1:
+        print("Erreur : veuillez saisir un seul caractere.")
+        return
+
+    print(f"Tableau saisi : {ma_liste}")
+    elements_sans_caractere = filtrer_elements_ne_contenant_pas(
+        ma_liste, caractere_a_chercher
+    )
+    print(f"Elements ne contenant pas '{caractere_a_chercher}' : {elements_sans_caractere}")
 
 if __name__ == "__main__":
     main()

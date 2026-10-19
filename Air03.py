@@ -1,7 +1,7 @@
 #  Chercher l'intrus
 
-# Programme retournant la valeur d'une liste qui n'a pas de paire
-# Itérer à travers la liste, compter le nombre d'occurrences de chaque élément et retourner celui qui a un nombre impair d'occurrences.
+# Programme retournant les valeurs qui ont un nombre impair d'occurrences.
+# Il compte les occurrences de chaque élément, puis retourne ceux qui n'ont pas de paire.
 
 def valeur_sans_paire(liste):
     occurrences = {}
@@ -13,32 +13,29 @@ def valeur_sans_paire(liste):
         else:
             occurrences[element] = 1
 
-    # Rechercher l'élément avec un nombre impair d'occurrences
-    for element, count in occurrences.items():
-        if count % 2 != 0:
-            return element
-
-    # Retourner None si tous les éléments ont un nombre pair d'occurrences
-    return None
+    # Retourner tous les éléments avec un nombre impair d'occurrences.
+    elements_sans_paire = [
+        element for element, count in occurrences.items() if count % 2 != 0
+    ]
+    return elements_sans_paire
 
 def main():
-    # Exemple 1
-    ma_liste = [1, 2, 3, 2, 1, 4, 5, 4, 3]
-    valeur_sans_paire_resultat = valeur_sans_paire(ma_liste)
+    # Demander à l'utilisateur de saisir les éléments séparés par des espaces.
+    saisie = input("Entrez les éléments de la liste, séparés par des espaces : ")
+    ma_liste = saisie.split()
 
-    if valeur_sans_paire_resultat is not None:
-        print(f"La valeur sans paire est : {valeur_sans_paire_resultat}")
+    if not ma_liste:
+        print("Erreur : la liste ne peut pas être vide.")
+        return
+
+    # Rechercher tous les éléments qui n'ont pas de paire.
+    elements_sans_paire = valeur_sans_paire(ma_liste)
+
+    if elements_sans_paire:
+        print("Erreur : ces éléments n'ont pas de paire :")
+        print(", ".join(elements_sans_paire))
     else:
-        print("Tous les éléments ont un nombre pair d'occurrences.")
-
-    # Exemple 2
-    ma_liste = ["Bonjour", "monsieur", "le", "comte", "bonjour"]
-    valeur_sans_paire_resultat = valeur_sans_paire(ma_liste)
-
-    if valeur_sans_paire_resultat is not None:
-        print(f"La valeur sans paire est : {valeur_sans_paire_resultat}")
-    else:
-        print("Tous les éléments ont un nombre pair d'occurrences.")
+        print("Aucune erreur : tous les éléments ont une paire.")
 
 if __name__ == "__main__":
     main()

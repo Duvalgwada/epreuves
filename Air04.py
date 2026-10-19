@@ -14,8 +14,8 @@ def supprimer_doublons_adjacents(chaine):
     return resultat
 
 def main():
-    # Exemple d'utilisation
-    chaine_originale = "Hello milady,   bien ou quoi ??"
+    # Demander à l'utilisateur la chaîne à traiter.
+    chaine_originale = input("Entrez une chaîne de caractères : ")
     chaine_resultante = supprimer_doublons_adjacents(chaine_originale)
 
     print("Chaine originale:", chaine_originale)
@@ -23,4 +23,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-# Excellent

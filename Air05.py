@@ -1,33 +1,36 @@
 #  Sur chacun d'entre eux
 
-# Programme etant capapble de reconneitre et de faire une operation (addition ou soustraction) sur chaque entier d'une liste
+# Programme qui ajoute une valeur à chaque entier d'une liste.
+# Une valeur négative produit une soustraction.
 
-def operation_sur_liste(liste, valeur, operation):
-    resultat = []
-
-    # Vérifier le type d'opération
-    if operation == 'addition':
-        resultat = [nombre + valeur for nombre in liste]
-    elif operation == 'soustraction':
-        resultat = [nombre - valeur for nombre in liste]
-    else:
-        print("Opération non reconnue. Les opérations valides sont 'addition' et 'soustraction'")
-        return None
-
-    return resultat
+def operation_sur_liste(liste, valeur):
+    # Ajouter la valeur (positive ou négative) à chaque nombre.
+    return [nombre + valeur for nombre in liste]
 
 def main():
-    # Exemple d'utilisation
-    ma_liste = [1, 2, 3, 4, 5]
-    valeur_a_ajouter_ou_soustraire = 10
+    # Demander les nombres à traiter, séparés par des espaces.
+    saisie_nombres = input("Entrez les nombres à traiter, séparés par des espaces : ")
+    try:
+        ma_liste = [int(nombre) for nombre in saisie_nombres.split()]
+    except ValueError:
+        print("Erreur : veuillez saisir uniquement des nombres entiers.")
+        return
 
-    # Ajouter la valeur à chaque élément de la liste
-    resultat_addition = operation_sur_liste(ma_liste, valeur_a_ajouter_ou_soustraire, 'addition')
-    print(f"Résultat de l'addition : {resultat_addition}")
+    if not ma_liste:
+        print("Erreur : vous devez saisir au moins un nombre.")
+        return
 
-    # Soustraire la valeur à chaque élément de la liste
-    resultat_soustraction = operation_sur_liste(ma_liste, valeur_a_ajouter_ou_soustraire, 'soustraction')
-    print(f"Résultat de la soustraction : {resultat_soustraction}")
+    # Demander la valeur à ajouter ; si elle est négative, cela revient à soustraire.
+    saisie_valeur = input("Entrez la valeur à ajouter (négative pour soustraire) : ")
+    try:
+        valeur_a_ajouter = int(saisie_valeur)
+    except ValueError:
+        print("Erreur : veuillez saisir une valeur entière.")
+        return
+
+    # Ajouter la valeur saisie à chaque nombre.
+    resultat = operation_sur_liste(ma_liste, valeur_a_ajouter)
+    print(f"Résultat : {resultat}")
 
 if __name__ == "__main__":
     main()
